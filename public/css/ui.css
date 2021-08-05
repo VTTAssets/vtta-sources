@@ -1,0 +1,76 @@
+#vtta-sources {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+#vtta-sources .sidebar {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background-color: #232323;
+}
+#vtta-sources .main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#vtta-sources .main .details {
+  color: white;
+}
+#vtta-sources .main .details .labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+#vtta-sources .main .details .labels > * {
+  margin-right: 0.4rem;
+}
+#vtta-sources .main .details .labels .label .title {
+  font-weight: bold;
+  color: #ebe26e;
+}
+#vtta-sources .main .details .labels .label .value {
+  display: inline-block;
+  min-width: 30px;
+  font-size: 0.8rem;
+}
+#vtta-sources .main .comments {
+  color: white;
+}
+#vtta-sources .list ul {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#vtta-sources .list ul li {
+  list-style-type: none;
+  line-height: 1.2rem;
+  font-size: 0.8rem;
+}
+#vtta-sources .list ul li:nth-child(2n) {
+  background-color: #181818;
+}
+#vtta-sources .list ul li.selected {
+  background-color: #3d3d5a;
+}
+/*# sourceMappingURL=ui.css.map */

@@ -1,0 +1,15 @@
+#scenes > header > div.header-actions > button.vtta.vtta-sources {
+  color: #1f1f1f;
+  font-weight: bold;
+}
+#scenes > header > div.header-actions > button.vtta.vtta-sources > i {
+  background-image: url(../img/vtta.io-dice-64x64.png);
+  height: 16px;
+  width: 14px;
+  background-size: 14px;
+  /* background-position-y: 2px; */
+  background-repeat: no-repeat;
+  position: relative;
+  top: 4px;
+}
+/*# sourceMappingURL=sidebar.css.map */

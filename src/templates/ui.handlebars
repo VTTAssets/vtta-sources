@@ -1,0 +1,108 @@
+{{#*inline "sceneListEntry"}}
+<li data-type="scene" {{#if selected }} class="selected"{{/if}} data-id="{{_id}}" data-vtta-id="{{id}}">{{name}}</li>
+{{/inline}}
+
+<form>
+ {{#*inline "scenesListPartial"}}
+ <div class="list scenes">
+   <ul>
+   {{#each scenes }}
+    {{> sceneListEntry layer=this }}
+    {{/each}}
+    </ul>
+ </div>
+ {{/inline}}
+
+
+  {{#*inline "commentsListPartial" }}
+  <div class="list comments">
+    
+  </div>
+  {{/inline}}
+
+  {{#*inline "label" }}
+    <div class="label"><span class="title">
+      {{title}} 
+    </span><span class="value">{{value}}</span></div>
+  {{/inline}}
+
+  {{#*inline "sceneDetailsPartial" }}
+    <!--<div class="labels">
+      <table>
+        <tr>
+          <th><span style="color: yellow;">ID</span> </th>
+          
+          <th><span style="color: yellow;">Changed</span></th>
+          
+          <th><span style="color: yellow;">by</span></th>
+          
+        </tr>
+        <tr>
+            <td style="text-align: center; width: 30%">{{details.id}}</td>
+            <td style="text-align: center; width: 30%">{{details.lastUpdatedAgo}}</td>
+            <td style="text-align: center;  width: 40%"><span title="">{{details.updatedBy.name}}</span> ({{details.updatedBy.discord}})</td>
+        </tr>
+      </table>
+    </div>-->
+    <div class="labels">
+      <table>
+        <tr>
+          <th>Grid</th>
+          <th>Monsters</th>
+          <th>Notes</th>
+          <th>Lights</th>
+          <th>Walls</th>
+        </tr>
+        <tr>
+          <td style="text-align: center">{{#if quality.grid }}<i style="color: green" class="fas fa-check-circle"></i>{{else}}<i style="color: red"; class="fas fa-times-circle"></i>{{/if}} </td>
+          <td style="text-align: center">{{details.monsters.total}} {{#if quality.monsters }}<i style="color: green" class="fas fa-check-circle"></i>{{else}}<i style="color: red"; class="fas fa-times-circle"></i>{{/if}}</td>
+          <td style="text-align: center">{{details.journals.total}} {{#if quality.journals }}<i style="color: green" class="fas fa-check-circle"></i>{{else}}<i style="color: red"; class="fas fa-times-circle"></i>{{/if}}</td>
+          <td style="text-align: center">{{details.lights}} {{#if quality.lights }}<i style="color: green" class="fas fa-check-circle"></i>{{else}}<i style="color: red"; class="fas fa-times-circle"></i>{{/if}}</td>
+          <td style="text-align: center">{{details.walls}} {{#if quality.walls }}<i style="color: green" class="fas fa-check-circle"></i>{{else}}<i style="color: red"; class="fas fa-times-circle"></i>{{/if}}</td>
+        </tr>
+        <tr>
+          <td style="text-align: center"><input type="checkbox" data-type="quality" data-prop="grid" name="grid" {{#if quality.grid}}checked disabled{{/if}}></td>
+          <td style="text-align: center"><input type="checkbox" data-type="quality" data-prop="monsters" name="monsters" {{#if quality.monsters}}checked disabled{{/if}}></td>
+          <td style="text-align: center"><input type="checkbox" data-type="quality" data-prop="journals" name="journals" {{#if quality.journals}}checked disabled{{/if}}></td>
+          <td style="text-align: center"><input type="checkbox" data-type="quality" data-prop="lights" name="lights" {{#if quality.lights}}checked disabled{{/if}}></td>
+          <td style="text-align: center"><input type="checkbox" data-type="quality" data-prop="walls" name="walls" {{#if quality.walls}}checked disabled{{/if}}></td>
+        </tr>
+      </table>
+      
+    </div>
+    <p style="font-size:0.65rem"><strong>Disabled, checked checkboxes</strong> indicate that these scene features exist on the selected map (e.g. monsters are placed), but can always be corrected or improved on (add missing monsters, change monster positions...)</p>
+      <p style="font-size:0.65rem"><strong>Enabled checkboxes</strong> can be used to override the lack of scene features: Not all scenes require walls or lights, or placed monsters. If you check those boxes you indicate that you made sure that this feature is not required for this scene.</p>
+  {{/inline}}
+
+  <!-- MAIN -->
+  <div id="vtta-sources">
+    <div class="sidebar">
+    <section class="scenes list">
+      {{> scenesListPartial }}
+    </section>
+    </div>
+    
+    <div class="main">
+      {{#if details}}
+      <section class="details">
+        <h2>{{details.name}}</h2>
+        <h4>{{details.id}}</h4>
+        {{> sceneDetailsPartial details=details}}
+      </section>
+      <section class="changelog" style="padding-top: 0px;">
+        <h2>Changelog</h2>
+        <div><textarea rows="5" name="changelog" placeholder="What did you change?"></textarea></div>
+      </section>
+      <section class="buttons">
+         <button type="submit"><i class="fab fa-github"></i> Submit Scene</button>
+         <button name="clipboard"><i class="fas fa-clipboard"></i> Copy to clipboard</button>
+      </section>
+      </section>
+      {{else}}
+      <section class="details">
+        <h2>Select a scene on the left</h2>
+      </section>
+      {{/if}}
+    </div>
+  </div>
+</form>
